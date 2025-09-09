@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
+/* Product Card Styles */
+.product-card {
+  @apply bg-white border border-gray-200 rounded-2xl shadow-lg 
+         overflow-hidden flex flex-col justify-between transition-all 
+         duration-300 hover:shadow-2xl hover:-translate-y-2;
+}
+
+.product-card img {
+  @apply w-full h-60 object-contain bg-gray-50 p-4 
+         transition-transform duration-500 hover:scale-105;
+}
+
+.product-card-content {
+  @apply p-4 flex flex-col flex-grow;
+}
+
+.product-card-title {
+  @apply font-semibold text-base text-gray-800 mb-1 line-clamp-2;
+}
+
+.product-card-price {
+  @apply text-lg font-bold text-indigo-600 mb-3;
+}
+
+.product-card-button {
+  @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium 
+         px-4 py-2 rounded-xl w-full shadow-md mt-auto
+         hover:from-indigo-700 hover:to-purple-700 transition duration-300;
+}
