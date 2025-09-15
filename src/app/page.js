@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Hero from "./components/Hero";
 import ProductCard from "./components/ProductCard";
+import Testimonial from "./components/Testimonial";
 import FAQ from "./components/FAQ";
 import ContactUs from "./components/ContactUs";
 import { fetchProductsByCategory } from "../utils/api";
@@ -133,6 +134,9 @@ export default function Home() {
             </PaginationContent>
           </Pagination>
         </div>
+      </section>
+      <section id="testimonial">
+      <Testimonial />
       </section>
 
       <section id="faq">
