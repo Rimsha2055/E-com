@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function TestimonialsPage() {
   const [testimonials, setTestimonials] = useState([]);
@@ -14,10 +15,12 @@ export default function TestimonialsPage() {
 
   // Auto-slide effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 3000); // Har 3 second baad change hoga
-    return () => clearInterval(interval);
+    if (testimonials.length > 0) {
+      const interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % testimonials.length);
+      }, 3000); // Har 3 second baad change hoga
+      return () => clearInterval(interval);
+    }
   }, [testimonials]);
 
   return (
@@ -27,7 +30,7 @@ export default function TestimonialsPage() {
       <div className="absolute bottom-20 right-20 w-60 h-60 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
 
       <h2 className="text-4xl font-extrabold text-indigo-700 mb-12 z-10">
-        What Our Customers Say 
+        What Our Customers Say
       </h2>
 
       {/* Testimonials Carousel */}
@@ -42,10 +45,12 @@ export default function TestimonialsPage() {
                 key={user.id}
                 className="min-w-full px-6 flex flex-col items-center text-center"
               >
-                <img
+                <Image
                   src={user.image}
-                  alt={user.firstName}
-                  className="w-24 h-24 rounded-full border-4 border-indigo-500 mb-4 shadow-lg"
+                  alt={`${user.firstName} ${user.lastName}`}
+                  width={96}
+                  height={96}
+                  className="rounded-full border-4 border-indigo-500 mb-4 shadow-lg object-cover"
                 />
                 <h3 className="text-xl font-semibold text-indigo-700">
                   {user.firstName} {user.lastName}
@@ -54,8 +59,8 @@ export default function TestimonialsPage() {
                   {user.company?.title}
                 </p>
                 <p className="text-gray-600 italic max-w-md">
-                  "Shopping at E-Shop has been a wonderful experience. Great
-                  quality and amazing service!"
+                  &quot;Shopping at E-Shop has been a wonderful experience. Great
+                  quality and amazing service!&quot;
                 </p>
               </div>
             ))}

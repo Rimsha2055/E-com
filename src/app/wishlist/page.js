@@ -1,5 +1,6 @@
 "use client";
 import { useWishlist } from "../context/WishlistContext";
+import Image from "next/image";
 
 export default function WishlistPage() {
   const { wishlist, removeFromWishlist } = useWishlist();

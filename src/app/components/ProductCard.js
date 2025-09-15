@@ -3,6 +3,7 @@ import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
 import { useRouter } from "next/navigation";
 
+
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
   const { addToWishlist } = useWishlist();

@@ -1,4 +1,5 @@
 import { fetchProductById } from "../../../utils/api";
+import Image from "next/image";
 
 export default async function ProductDetail({ params }) {
   const product = await fetchProductById(params.id);
