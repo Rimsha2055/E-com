@@ -26,7 +26,9 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 pt-24">
-      <h1 className="text-4xl font-bold text-center mb-10">Latest Blogs </h1>
+      <h1 className="text-4xl font-bold text-center mb-10 text-indigo-700">
+        Latest Blogs
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {blogs.map((blog) => (
@@ -34,12 +36,13 @@ export default function BlogPage() {
             key={blog.id}
             className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition"
           >
-         
-            <img
-              src={`https://picsum.photos/400/300?random=${blog.id}`}
-              alt={blog.title}
-              className="w-full h-48 object-cover"
-            />
+            {/* Background Image instead of <img> or <Image /> */}
+            <div
+              className="w-full h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(https://picsum.photos/400/300?random=${blog.id})`,
+              }}
+            ></div>
 
             <div className="p-5">
               <p className="text-sm text-gray-500">Blog ID: {blog.id}</p>
